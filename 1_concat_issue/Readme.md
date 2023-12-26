@@ -32,9 +32,11 @@ onnx::Unsequeeze_188和onnx::Unsequeeze_191 tensor先Unsquzze然后拼接，再�
 不会有精度损失，而add操作，高通对这个算子的入参是做了精度对齐的，所以出来的结果也是正确的。模型修改参考modify_model.py  
 
 
+修改后模型：  
+
 ![修改后的模型](resources/Selection_055.png)
 
-
+修改后结果：
 ![精度修复](resources/Selection_056.png)
 
 
