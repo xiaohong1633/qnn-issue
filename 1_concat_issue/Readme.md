@@ -29,8 +29,7 @@ onnx::Unsequeeze_188和onnx::Unsequeeze_191 tensor先Unsquzze然后拼接，再�
 思路:既然concat操作有精度损失，而在QNN官方未解决此bug之前，我们只能自己想办法解决，也许有些人在这里就放弃QNN，而改用其它框架，
 但对我来说，QNN的速度实在确实惊艳，对端侧产品性能提升巨大，QNN也在慢慢完善，总之，一切都是值得的。所以，我们可以替换一些没有精度损失的算子来规避。
 我这里替换两个tensor的直接concat操作，改为每个tensor先和0拼接，然后用加的操作达到同一目的。 因为量化过程中会保持0精度不变，所以两个tensor和0的拼接操作
-不会有精度损失，而add操作，高通对这个算子的入参是做了精度对齐的，所以出来的结果也是正确的。
-模型修改参考modify_model.py
+不会有精度损失，而add操作，高通对这个算子的入参是做了精度对齐的，所以出来的结果也是正确的。模型修改参考modify_model.py
 ![修改后的模型](resources/Selection_055.png)
 ![精度修复](resources/Selection_056.png)
 
