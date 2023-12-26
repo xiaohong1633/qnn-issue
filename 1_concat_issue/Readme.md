@@ -36,7 +36,8 @@ onnx::Unsequeeze_188和onnx::Unsequeeze_191 tensor先Unsquzze然后拼接，再�
 
 ![修改后的模型](resources/Selection_055.png)
 
-修改后结果：
+修改后结果：  
+
 ![精度修复](resources/Selection_056.png)
 
 
